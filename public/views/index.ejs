@@ -1,0 +1,63 @@
+<html>
+  <head>
+    <title>Contacts</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      .header {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 12px;
+        background-color: #f1f3f6;
+      }
+      .contactDiv {
+        background-color: #fafafa;
+        margin: 10px;
+        padding: 6px;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+      }
+      .del {
+        background-color: red;
+        cursor: pointer;
+        border: none;
+        color: #fff;
+        padding: 6px 16px;
+        border-radius: 4px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <div style="flex: 1;">
+        <h1 onclick="goHome()" style="cursor: pointer;">Contacts</h1>
+      </div>
+      <a href="/add"><h5>Add new contact</h5></a>
+    </div>
+    <% for(let contact of contacts) { %>
+    <div class="contactDiv">
+      <div style="flex: 1;">
+        <h4><%= contact.name %></h4>
+        <small><%= contact.phone %></small> <br />
+        <small><%= contact.email %></small>
+      </div>
+      <div>
+        <form method="POST" action="/delete/<%= contact.id %>">
+          <button class="del">Delete</button>
+        </form>
+      </div>
+    </div>
+    <% } %>
+  </body>
+  <script>
+    function goHome() {
+      window.location = '/';
+    }
+  </script>
+</html>

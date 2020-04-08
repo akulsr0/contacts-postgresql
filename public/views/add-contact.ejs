@@ -1,0 +1,47 @@
+<html>
+  <head>
+    <title>Add Contact</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      .header {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 12px;
+        background-color: #f1f3f6;
+      }
+      .formDiv {
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <div style="flex: 1;">
+        <h1 onclick="goHome()" style="cursor: pointer;">Contacts</h1>
+      </div>
+      <a href="/add"><h5>Add new contact</h5></a>
+    </div>
+    <center>
+      <div class="formDiv">
+        <h2>Add a new contact</h2>
+        <br />
+        <form action="/add" method="post">
+          <input type="text" name="name" placeholder="Name" />
+          <input type="number" name="phone" placeholder="Phone" />
+          <input type="text" name="email" placeholder="Email" />
+          <button>Save</button>
+        </form>
+      </div>
+    </center>
+  </body>
+  <script>
+    function goHome() {
+      window.location = '/';
+    }
+  </script>
+</html>
